@@ -1,0 +1,44 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700);
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,500,700,100);
+/* CSS declarations go here */
+html, body {
+  height: 100%;
+  margin: 0px;
+  font-family: 'Open Sans', sans-serif;
+  width: 100%;
+  /*background-color: #eeeeee;*/
+}
+
+html {
+  overflow: hidden;
+}
+
+%flex-bare-container {
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: flex;
+  display: -webkit-flex;
+}
+
+%flex-row-container {
+  @extend %flex-bare-container;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          -webkit-box-orient: horizontal;
+          -webkit-box-direction: normal;
+          flex-direction: row;
+}
+
+%flex-column-container {
+  @extend %flex-bare-container;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          -webkit-box-orient: vertical;
+          -webkit-box-direction: normal;
+          flex-direction: column;
+}
+
+@import "client/login/login.scss";
+@import "client/groupChat.scss";
+
+@import "group-chat-tutorial.scss";

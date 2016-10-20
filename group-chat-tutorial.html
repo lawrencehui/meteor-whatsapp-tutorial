@@ -1,0 +1,55 @@
+<template name="groupChat">
+  <div class="main">
+    <header class="chat-header">
+      <div class="chat-avatar"></div>
+      <div class="group-info">
+        <div class="group-title">Meteor101 Group Chat</div>
+        <div class="group-members">{{memberNames}}</div>
+      </div>
+    </header>
+    <div class="chat-body" id="chat-body">
+      {{#each findAllMessages}}
+        {{#if isSender}}
+          {{> messageOutRow}}
+        {{else}}
+          {{> messageInRow}}
+        {{/if}}
+      {{/each}}
+
+      <div class="bgContainer"></div>
+    </div>
+    <footer class="chat-footer">
+      <input id="message-input-box" type="text" placeholder="Type a message" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+      <button id="message-submit-btn" class="send-btn"></button>
+    </footer>
+  </div>
+</template>
+
+<template name="messageInRow">
+  <div class="chatRow">
+    <div class="message-bubble message-in">
+      <div class="message-sender">
+        {{name}}
+      </div>
+      <div class="message-text">
+        {{message}}
+      </div>
+      <div class="message-meta">
+        {{format_createdAt createdAt}}
+      </div>
+    </div>
+  </div>
+</template>
+
+<template name="messageOutRow">
+  <div class="chatRow">
+    <div class="message-bubble message-out">
+      <div class="message-text">
+        {{message}}
+      </div>
+      <div class="message-meta">
+        {{format_createdAt createdAt}}
+      </div>
+    </div>
+  </div>
+</template>
